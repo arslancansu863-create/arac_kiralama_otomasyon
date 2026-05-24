@@ -122,6 +122,39 @@ namespace arac_kiralama_otomasyon
                 MessageBox.Show($"Hata = {ex.Message}");
             }
         }
+
+        private void btn_sil_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult sonuc = MessageBox.Show(
+                    "Silmek istediğinize emin misiniz?",
+                    "Silme Onayı",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (sonuc == DialogResult.Yes)
+                {
+                    if (dataGridView1.CurrentRow != null)
+                    {
+                        int selectedId = Convert.ToInt32(dataGridView1.CurrentRow.Cells["musteri_id"].Value);
+                        Musteri musteri = db.Musteris.Find(selectedId);
+                        if (musteri != null)
+                        {
+                            db.Musteris.Remove(musteri);
+                            db.SaveChanges();
+                            MessageBox.Show("Müşteri Silindi!");
+                            btn_listele.PerformClick();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Hata = {ex.Message}");
+            }
+        }
     }
 }
 
