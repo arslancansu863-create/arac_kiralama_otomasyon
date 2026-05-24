@@ -66,6 +66,7 @@
             this.btn_ekle.TabIndex = 1;
             this.btn_ekle.Text = "EKLE";
             this.btn_ekle.UseVisualStyleBackColor = true;
+            this.btn_ekle.Click += new System.EventHandler(this.btn_ekle_Click);
             // 
             // btn_güncelle
             // 
