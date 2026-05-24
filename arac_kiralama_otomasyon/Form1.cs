@@ -16,5 +16,16 @@ namespace arac_kiralama_otomasyon
         {
             InitializeComponent();
         }
+
+        MusteriDbContext db = new MusteriDbContext();
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_listele_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = db.Musteris.ToList();
+        }
     }
 }
