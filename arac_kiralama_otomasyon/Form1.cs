@@ -77,5 +77,53 @@ namespace arac_kiralama_otomasyon
                 MessageBox.Show($"Hata = {ex.Message}");
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                txt_isim.Text = dataGridView1.Rows[e.RowIndex].Cells["musteri_ad"].Value.ToString();
+                txt_soyad.Text = dataGridView1.Rows[e.RowIndex].Cells["musteri_soyad"].Value.ToString();
+                txt_telefon.Text = dataGridView1.Rows[e.RowIndex].Cells["musteri_telefon"].Value.ToString();
+                txt_mail.Text = dataGridView1.Rows[e.RowIndex].Cells["musteri_mail"].Value.ToString();
+                txt_tc.Text = dataGridView1.Rows[e.RowIndex].Cells["musteri_tc"].Value.ToString();
+                txt_ehliyetno.Text = dataGridView1.Rows[e.RowIndex].Cells["musteri_ehliyetno"].Value.ToString();
+            }
+        }
+
+        private void btn_güncelle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow != null)
+                {
+                    int selectedId = Convert.ToInt32(dataGridView1.CurrentRow.Cells["musteri_id"].Value);
+                    Musteri musteri = db.Musteris.Find(selectedId);
+                    if (musteri != null)
+                    {
+                        musteri.musteri_ad = txt_isim.Text;
+                        musteri.musteri_soyad = txt_soyad.Text;
+                        musteri.musteri_telefon = txt_telefon.Text;
+                        musteri.musteri_mail = txt_mail.Text;
+                        musteri.musteri_tc = txt_tc.Text;
+                        musteri.musteri_ehliyetno = txt_ehliyetno.Text;
+
+                        db.SaveChanges();
+
+                        MessageBox.Show("Müşteri güncellendi!");
+
+                        btn_listele.PerformClick();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Hata = {ex.Message}");
+            }
+        }
     }
 }
+
+
+
