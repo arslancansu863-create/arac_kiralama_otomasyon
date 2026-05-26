@@ -143,6 +143,7 @@ namespace arac_kiralama_otomasyon
                         {
                             db.Musteris.Remove(musteri);
                             db.SaveChanges();
+
                             MessageBox.Show("Müşteri Silindi!");
                             btn_listele.PerformClick();
                         }
