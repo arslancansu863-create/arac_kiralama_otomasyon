@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace arac_kiralama_otomasyon
 {
@@ -16,5 +17,7 @@ namespace arac_kiralama_otomasyon
         {
             InitializeComponent();
         }
+
+        MusteriDbContext db = new MusteriDbContext();
     }
 }
