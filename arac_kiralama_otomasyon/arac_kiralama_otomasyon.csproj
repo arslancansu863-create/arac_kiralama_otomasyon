@@ -63,8 +63,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Kiralama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Kiralama.Designer.cs">
+      <DependentUpon>Form_Kiralama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kiralama.cs" />
     <Compile Include="Musteri.cs" />
     <Compile Include="MusteriDbContext.cs" />
+    <Compile Include="Personel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

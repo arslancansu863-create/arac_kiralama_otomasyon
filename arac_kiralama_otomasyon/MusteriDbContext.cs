@@ -16,5 +16,8 @@ namespace arac_kiralama_otomasyon
         }
 
         public DbSet<Musteri> Musteris { get; set; }
+        public DbSet<Arac> Araclar { get; set; }
+        public DbSet<Personel> Personeller { get; set; }
+        public DbSet<Kiralama> Kiralamalar { get; set; }
     }
 }

@@ -156,6 +156,14 @@ namespace arac_kiralama_otomasyon
                 MessageBox.Show($"Hata = {ex.Message}");
             }
         }
+
+        private void btn_form_krl_Click(object sender, EventArgs e)
+        {
+            Form_Kiralama form2_cp = new Form_Kiralama();
+            this.Hide();
+            form2_cp.ShowDialog();
+            this.Close();
+        }
     }
 }
 

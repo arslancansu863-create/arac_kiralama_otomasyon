@@ -38,5 +38,7 @@ namespace arac_kiralama_otomasyon
         [MaxLength(50)]
         public string musteri_ehliyetno { get; set; }
 
+        public virtual ICollection <Kiralama> Kiralamas { get; set; } 
+
     }
 }
