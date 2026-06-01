@@ -98,30 +98,29 @@ namespace arac_kiralama_otomasyon
         {
             try
             {
-                combo_musteri.DataSource = db.Musteris 
-                    .OrderBy(m => m.musteri_ad) 
-                    .Select(m => new
-                    {
-                        m.musteri_id, 
-                        FullName = m.musteri_ad + " " + m.musteri_soyad 
-                    })
-                    .ToList();
+                
+                int selectedCustomerId = (int)combo_musteri.SelectedValue;
+                int selectedProductId = (int)combo_arac.SelectedValue;
+                int selectedPersonelId = 1;
 
-                combo_musteri.DisplayMember = "FullName"; 
-                combo_musteri.ValueMember = "musteri_id"; 
+               
+                var newRecord = new Kiralama
+                {
+                    musteri_id = selectedCustomerId,
+                    arac_id = selectedProductId,
+                    personel_id = selectedPersonelId,
+                    alis_tarihi = DateTime.Now,
+                    teslim_tarihi = DateTime.Now.AddDays(3),
+                    gun_sayisi = 3,
+                    toplam_tutar = 4500.00m, 
+                    kiralama_durum = "aktif"
+                };
+                db.Kiralamalar.Add(newRecord);
+                db.SaveChanges();
 
-                combo_arac.DataSource = db.Araclar
-                    .OrderBy(a => a.arac_marka) 
-                    .Select(a => new
-                    {
-                        a.arac_id, 
-                        ProductInfo = a.arac_marka + " " + a.arac_model + " - " + a.arac_gunlukfiyat + " TL (" + a.arac_durum + ")"
-                    })
-                    .ToList();
+                MessageBox.Show("Kayıt başarıyla eklendi.");
 
-                combo_arac.DisplayMember = "ProductInfo"; 
-                combo_arac.ValueMember = "arac_id";
-
+                
                 btn_listele.PerformClick();
             }
             catch (Exception ex)
