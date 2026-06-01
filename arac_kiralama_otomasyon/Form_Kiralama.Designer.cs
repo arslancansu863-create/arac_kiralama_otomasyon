@@ -30,14 +30,14 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.combo_arac = new System.Windows.Forms.ComboBox();
+            this.combo_musteri = new System.Windows.Forms.ComboBox();
+            this.lbl_arac = new System.Windows.Forms.Label();
+            this.lbl_musteri = new System.Windows.Forms.Label();
+            this.btn_ekle = new System.Windows.Forms.Button();
             this.btn_listele = new System.Windows.Forms.Button();
             this.btn_sil = new System.Windows.Forms.Button();
-            this.btn_ekle = new System.Windows.Forms.Button();
             this.btn_form_kiralama = new System.Windows.Forms.Button();
-            this.lbl_musteri = new System.Windows.Forms.Label();
-            this.lbl_arac = new System.Windows.Forms.Label();
-            this.combo_musteri = new System.Windows.Forms.ComboBox();
-            this.combo_arac = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -64,50 +64,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // btn_listele
+            // combo_arac
             // 
-            this.btn_listele.Location = new System.Drawing.Point(128, 175);
-            this.btn_listele.Name = "btn_listele";
-            this.btn_listele.Size = new System.Drawing.Size(75, 23);
-            this.btn_listele.TabIndex = 2;
-            this.btn_listele.Text = "LİSTELE";
-            this.btn_listele.UseVisualStyleBackColor = true;
+            this.combo_arac.FormattingEnabled = true;
+            this.combo_arac.Location = new System.Drawing.Point(156, 88);
+            this.combo_arac.Name = "combo_arac";
+            this.combo_arac.Size = new System.Drawing.Size(121, 21);
+            this.combo_arac.TabIndex = 4;
             // 
-            // btn_sil
+            // combo_musteri
             // 
-            this.btn_sil.Location = new System.Drawing.Point(324, 174);
-            this.btn_sil.Name = "btn_sil";
-            this.btn_sil.Size = new System.Drawing.Size(75, 23);
-            this.btn_sil.TabIndex = 3;
-            this.btn_sil.Text = "SİL";
-            this.btn_sil.UseVisualStyleBackColor = true;
-            // 
-            // btn_ekle
-            // 
-            this.btn_ekle.Location = new System.Drawing.Point(202, 143);
-            this.btn_ekle.Name = "btn_ekle";
-            this.btn_ekle.Size = new System.Drawing.Size(75, 23);
-            this.btn_ekle.TabIndex = 0;
-            this.btn_ekle.Text = "EKLE";
-            this.btn_ekle.UseVisualStyleBackColor = true;
-            // 
-            // btn_form_kiralama
-            // 
-            this.btn_form_kiralama.Location = new System.Drawing.Point(606, 282);
-            this.btn_form_kiralama.Name = "btn_form_kiralama";
-            this.btn_form_kiralama.Size = new System.Drawing.Size(75, 23);
-            this.btn_form_kiralama.TabIndex = 4;
-            this.btn_form_kiralama.Text = "ANA FORM ";
-            this.btn_form_kiralama.UseVisualStyleBackColor = true;
-            // 
-            // lbl_musteri
-            // 
-            this.lbl_musteri.AutoSize = true;
-            this.lbl_musteri.Location = new System.Drawing.Point(27, 48);
-            this.lbl_musteri.Name = "lbl_musteri";
-            this.lbl_musteri.Size = new System.Drawing.Size(59, 13);
-            this.lbl_musteri.TabIndex = 1;
-            this.lbl_musteri.Text = "MÜŞTERİ:";
+            this.combo_musteri.FormattingEnabled = true;
+            this.combo_musteri.Location = new System.Drawing.Point(156, 48);
+            this.combo_musteri.Name = "combo_musteri";
+            this.combo_musteri.Size = new System.Drawing.Size(121, 21);
+            this.combo_musteri.TabIndex = 3;
             // 
             // lbl_arac
             // 
@@ -118,21 +89,52 @@
             this.lbl_arac.TabIndex = 2;
             this.lbl_arac.Text = "ARAÇ:";
             // 
-            // combo_musteri
+            // lbl_musteri
             // 
-            this.combo_musteri.FormattingEnabled = true;
-            this.combo_musteri.Location = new System.Drawing.Point(156, 48);
-            this.combo_musteri.Name = "combo_musteri";
-            this.combo_musteri.Size = new System.Drawing.Size(121, 21);
-            this.combo_musteri.TabIndex = 3;
+            this.lbl_musteri.AutoSize = true;
+            this.lbl_musteri.Location = new System.Drawing.Point(27, 48);
+            this.lbl_musteri.Name = "lbl_musteri";
+            this.lbl_musteri.Size = new System.Drawing.Size(59, 13);
+            this.lbl_musteri.TabIndex = 1;
+            this.lbl_musteri.Text = "MÜŞTERİ:";
             // 
-            // combo_arac
+            // btn_ekle
             // 
-            this.combo_arac.FormattingEnabled = true;
-            this.combo_arac.Location = new System.Drawing.Point(156, 88);
-            this.combo_arac.Name = "combo_arac";
-            this.combo_arac.Size = new System.Drawing.Size(121, 21);
-            this.combo_arac.TabIndex = 4;
+            this.btn_ekle.Location = new System.Drawing.Point(202, 143);
+            this.btn_ekle.Name = "btn_ekle";
+            this.btn_ekle.Size = new System.Drawing.Size(75, 23);
+            this.btn_ekle.TabIndex = 0;
+            this.btn_ekle.Text = "EKLE";
+            this.btn_ekle.UseVisualStyleBackColor = true;
+            this.btn_ekle.Click += new System.EventHandler(this.btn_ekle_Click);
+            // 
+            // btn_listele
+            // 
+            this.btn_listele.Location = new System.Drawing.Point(128, 175);
+            this.btn_listele.Name = "btn_listele";
+            this.btn_listele.Size = new System.Drawing.Size(75, 23);
+            this.btn_listele.TabIndex = 2;
+            this.btn_listele.Text = "LİSTELE";
+            this.btn_listele.UseVisualStyleBackColor = true;
+            this.btn_listele.Click += new System.EventHandler(this.btn_listele_Click);
+            // 
+            // btn_sil
+            // 
+            this.btn_sil.Location = new System.Drawing.Point(324, 174);
+            this.btn_sil.Name = "btn_sil";
+            this.btn_sil.Size = new System.Drawing.Size(75, 23);
+            this.btn_sil.TabIndex = 3;
+            this.btn_sil.Text = "SİL";
+            this.btn_sil.UseVisualStyleBackColor = true;
+            // 
+            // btn_form_kiralama
+            // 
+            this.btn_form_kiralama.Location = new System.Drawing.Point(606, 282);
+            this.btn_form_kiralama.Name = "btn_form_kiralama";
+            this.btn_form_kiralama.Size = new System.Drawing.Size(75, 23);
+            this.btn_form_kiralama.TabIndex = 4;
+            this.btn_form_kiralama.Text = "ANA FORM ";
+            this.btn_form_kiralama.UseVisualStyleBackColor = true;
             // 
             // Form_Kiralama
             // 
@@ -146,6 +148,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form_Kiralama";
             this.Text = "Form_Kiralama";
+            this.Load += new System.EventHandler(this.Form_Kiralama_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
