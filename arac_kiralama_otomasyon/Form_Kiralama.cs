@@ -96,7 +96,38 @@ namespace arac_kiralama_otomasyon
 
         private void btn_ekle_Click(object sender, EventArgs e)
         {
-           
+            try
+            {
+                combo_musteri.DataSource = db.Musteris 
+                    .OrderBy(m => m.musteri_ad) 
+                    .Select(m => new
+                    {
+                        m.musteri_id, 
+                        FullName = m.musteri_ad + " " + m.musteri_soyad 
+                    })
+                    .ToList();
+
+                combo_musteri.DisplayMember = "FullName"; 
+                combo_musteri.ValueMember = "musteri_id"; 
+
+                combo_arac.DataSource = db.Araclar
+                    .OrderBy(a => a.arac_marka) 
+                    .Select(a => new
+                    {
+                        a.arac_id, 
+                        ProductInfo = a.arac_marka + " " + a.arac_model + " - " + a.arac_gunlukfiyat + " TL (" + a.arac_durum + ")"
+                    })
+                    .ToList();
+
+                combo_arac.DisplayMember = "ProductInfo"; 
+                combo_arac.ValueMember = "arac_id";
+
+                btn_listele.PerformClick();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata = {ex.Message}");
+            }
         }
     }
     
