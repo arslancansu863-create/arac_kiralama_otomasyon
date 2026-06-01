@@ -128,6 +128,40 @@ namespace arac_kiralama_otomasyon
                 MessageBox.Show($"Hata = {ex.Message}");
             }
         }
+
+        private void btn_sil_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult sonuc = MessageBox.Show(
+                    "Silmek istediğinize emin misiniz?",
+                    "Silme Onayı",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (sonuc == DialogResult.Yes)
+                {
+                    int selectedId = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                    var recordToDelete = db.Kiralamalar.Find(selectedId);
+
+                    if (recordToDelete != null)
+                    {
+                        db.Kiralamalar.Remove(recordToDelete);
+                        db.SaveChanges();
+                        MessageBox.Show("Kayıt başarıyla silindi.");
+                        btn_listele.PerformClick();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kayıt bulunamadı.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata = {ex.Message}");
+            }
+        }
     }
     
 }

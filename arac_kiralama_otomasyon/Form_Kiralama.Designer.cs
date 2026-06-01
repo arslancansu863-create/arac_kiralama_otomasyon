@@ -126,10 +126,11 @@
             this.btn_sil.TabIndex = 3;
             this.btn_sil.Text = "SİL";
             this.btn_sil.UseVisualStyleBackColor = true;
+            this.btn_sil.Click += new System.EventHandler(this.btn_sil_Click);
             // 
             // btn_form_kiralama
             // 
-            this.btn_form_kiralama.Location = new System.Drawing.Point(606, 282);
+            this.btn_form_kiralama.Location = new System.Drawing.Point(607, 175);
             this.btn_form_kiralama.Name = "btn_form_kiralama";
             this.btn_form_kiralama.Size = new System.Drawing.Size(75, 23);
             this.btn_form_kiralama.TabIndex = 4;
