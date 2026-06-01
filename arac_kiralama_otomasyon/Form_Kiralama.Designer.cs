@@ -38,8 +38,14 @@
             this.btn_listele = new System.Windows.Forms.Button();
             this.btn_sil = new System.Windows.Forms.Button();
             this.btn_form_kiralama = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rd_1 = new System.Windows.Forms.RadioButton();
+            this.rd_2 = new System.Windows.Forms.RadioButton();
+            this.lbl_1 = new System.Windows.Forms.Label();
+            this.lbl_2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -59,7 +65,7 @@
             this.groupBox1.Controls.Add(this.btn_ekle);
             this.groupBox1.Location = new System.Drawing.Point(12, 225);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(448, 187);
+            this.groupBox1.Size = new System.Drawing.Size(387, 187);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -137,11 +143,67 @@
             this.btn_form_kiralama.Text = "ANA FORM ";
             this.btn_form_kiralama.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lbl_2);
+            this.groupBox2.Controls.Add(this.lbl_1);
+            this.groupBox2.Controls.Add(this.rd_2);
+            this.groupBox2.Controls.Add(this.rd_1);
+            this.groupBox2.Location = new System.Drawing.Point(454, 234);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(293, 178);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "İSTATİSTİKLER";
+            // 
+            // rd_1
+            // 
+            this.rd_1.AutoSize = true;
+            this.rd_1.Location = new System.Drawing.Point(23, 42);
+            this.rd_1.Name = "rd_1";
+            this.rd_1.Size = new System.Drawing.Size(85, 17);
+            this.rd_1.TabIndex = 0;
+            this.rd_1.TabStop = true;
+            this.rd_1.Text = "radioButton1";
+            this.rd_1.UseVisualStyleBackColor = true;
+            this.rd_1.CheckedChanged += new System.EventHandler(this.rd_1_CheckedChanged);
+            // 
+            // rd_2
+            // 
+            this.rd_2.AutoSize = true;
+            this.rd_2.Location = new System.Drawing.Point(23, 93);
+            this.rd_2.Name = "rd_2";
+            this.rd_2.Size = new System.Drawing.Size(85, 17);
+            this.rd_2.TabIndex = 1;
+            this.rd_2.TabStop = true;
+            this.rd_2.Text = "radioButton2";
+            this.rd_2.UseVisualStyleBackColor = true;
+            this.rd_2.CheckedChanged += new System.EventHandler(this.rd_2_CheckedChanged);
+            // 
+            // lbl_1
+            // 
+            this.lbl_1.AutoSize = true;
+            this.lbl_1.Location = new System.Drawing.Point(172, 46);
+            this.lbl_1.Name = "lbl_1";
+            this.lbl_1.Size = new System.Drawing.Size(35, 13);
+            this.lbl_1.TabIndex = 2;
+            this.lbl_1.Text = "label1";
+            // 
+            // lbl_2
+            // 
+            this.lbl_2.AutoSize = true;
+            this.lbl_2.Location = new System.Drawing.Point(175, 104);
+            this.lbl_2.Name = "lbl_2";
+            this.lbl_2.Size = new System.Drawing.Size(35, 13);
+            this.lbl_2.TabIndex = 3;
+            this.lbl_2.Text = "label2";
+            // 
             // Form_Kiralama
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btn_form_kiralama);
             this.Controls.Add(this.btn_sil);
             this.Controls.Add(this.btn_listele);
@@ -153,6 +215,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -169,5 +233,10 @@
         private System.Windows.Forms.ComboBox combo_musteri;
         private System.Windows.Forms.Label lbl_arac;
         private System.Windows.Forms.Label lbl_musteri;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lbl_2;
+        private System.Windows.Forms.Label lbl_1;
+        private System.Windows.Forms.RadioButton rd_2;
+        private System.Windows.Forms.RadioButton rd_1;
     }
 }

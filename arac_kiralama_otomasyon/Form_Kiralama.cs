@@ -162,6 +162,88 @@ namespace arac_kiralama_otomasyon
                 MessageBox.Show($"Hata = {ex.Message}");
             }
         }
+
+        private void rd_1_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rd_1.Checked)
+                {
+                    var result = db.Kiralamalar
+                        .GroupBy(cp => new
+                        {
+                            cp.Musteri.musteri_id,
+                            cp.Musteri.musteri_ad,
+                            cp.Musteri.musteri_soyad
+
+                        })
+
+                        .Select(g => new
+                        {
+                            FullName = g.Key.musteri_ad + " " + g.Key.musteri_soyad,
+                            TotalCount = g.Count()
+                        })
+
+                        .OrderByDescending(x => x.TotalCount)
+                        .FirstOrDefault();
+                    if (result != null)
+                    {
+                        lbl_1.Text = $"{result.FullName}{result.TotalCount}ürün almış";
+                    }
+
+                    else
+                    { lbl_1.Text = "Kayıt bulunamadı."; }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Hata = {ex.Message}");
+            }
+        }
+
+        private void rd_2_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rd_2.Checked)
+                {
+                    var result = db.Kiralamalar
+                        .Include(cp => cp.Arac)
+                        .GroupBy(cp => new
+                        {
+                            cp.Musteri.musteri_id,
+                            cp.Musteri.musteri_ad,
+                            cp.Musteri.musteri_soyad
+                        })
+
+                        .Select(g => new
+                        {
+                            FullName = g.Key.musteri_ad + " " + g.Key.musteri_soyad,
+                            TotalPrice = g.Sum(cp => cp.Arac.arac_gunlukfiyat)
+                        })
+
+                        .OrderByDescending(x => x.TotalPrice)
+                        .FirstOrDefault();
+
+                    if (result != null)
+                    {
+                        lbl_2.Text = $"{result.FullName}{result.TotalPrice}TL";
+                    }
+
+                    else
+                    {
+                        lbl_2.Text = "Kayıt bulunamadı.";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Hata = {ex.Message}");
+            }
+        }
     }
     
 }
