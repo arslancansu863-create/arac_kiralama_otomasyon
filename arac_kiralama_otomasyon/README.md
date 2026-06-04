@@ -258,7 +258,7 @@ arac_kiralama_otomasyon/
 
 <div align="center">
 
-**⭐ Bu projeyi beğendiyseniz star vermeyi unutmayın!**
+**⭐ Cansu ARSLAN
 
 Made with ❤️ by [arslancansu863-create](https://github.com/arslancansu863-create)
 
